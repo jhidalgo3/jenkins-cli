@@ -1,0 +1,10 @@
+{
+    "name": "jenkins-cli",
+    "description": "jenkins-cli: ",
+    "version": "0.1.0",
+    "url": "https://github.com/jhidalgo3/jenkins-cli",
+    "options": {
+        "outdir": "./docs",
+        "paths": "./lib"
+    }
+}
