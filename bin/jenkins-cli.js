@@ -55,25 +55,29 @@ program
  */
 
 program
-    .command('signup')
-    .description('Create your account'.white)
-    .action(function() {
+    .command('config')
+    .description('Config Jenkins connection'.white)
+    .action(function () {
         var prompts = [{
             type: 'input',
-            name: 'name',
-            message: 'What\'s your name?'
+            name: 'url',
+            message: 'Jenkins url?'
         }, {
             type: 'input',
-            name: 'email',
-            message: 'What\'s your email?'
+            name: 'user',
+            message: 'What\'s your user?'
         }, {
             type: 'password',
-            name: 'password',
-            message: 'Enter your password'
+            name: 'token',
+            message: 'What\'s your API Token?'
+        },{
+            type: 'input',
+            name: 'pipelineDirectory',
+            message: 'Working dir'
         }];
         //Ask
-        api.prompt(prompts, function(answers) {
-            api.signup(answers.name, answers.email, answers.password);
+        api.prompt(prompts, function (jenkins) {
+            api.signup(jenkins);
         });
     });
 
@@ -83,18 +87,47 @@ program
 program
     .command('status')
     .description('Show status of API'.white)
-    .action(function() {
+    .action(function () {
         api.status(program.json);
+    });
+
+
+program
+    .command('list')
+    .description ('List Plugins or Jobs ')
+    .option('-p, --plugins', 'Work plugins configuration')
+    .option('-j, --jobs', 'Work jobs configuration')
+    .action(function (options){
+        api.list (options);
+    });
+
+program
+    .command('backup')
+    .description("Backup all Plugins or Jobs")
+    .option('-p, --plugins', 'Work plugins configuration')
+    .option('-j, --jobs', 'Work jobs configuration')
+    .action(function (options) {
+        api.backup (options);
+    });
+
+
+program
+    .command('install')
+    .description("Install Plugins or Jobs")
+    .option('-p, --plugins', 'Work plugins configuration')
+    .option('-j, --jobs', 'Work jobs configuration')
+    .action(function (options) {
+        api.install (options);
     });
 
 /*
  * Api on help ption show examples
  */
 
-program.on('--help', function() {
+program.on('--help', function () {
     console.log('  Examples:');
     console.log('');
-    console.log('    $ jenkins-cli signup');
+    console.log('    $ jenkins-cli config');
     console.log('    $ jenkins-cli status');
     console.log('');
 });
