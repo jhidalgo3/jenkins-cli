@@ -48,7 +48,8 @@ program
  */
 
 program
-    .option('--json', 'Show pure JSON output');
+    .option('-c, --connection [file]', 'Jenkins file connection');
+
 
 /*
  * Api Signup
@@ -87,8 +88,9 @@ program
 program
     .command('status')
     .description('Show status of API'.white)
-    .action(function () {
-        api.status(program.json);
+    .action(function (options) {
+        options.connection = program.connection;
+        api.status(options);
     });
 
 
@@ -98,6 +100,8 @@ program
     .option('-p, --plugins', 'Work plugins configuration')
     .option('-j, --jobs', 'Work jobs configuration')
     .action(function (options){
+        options.connection = program.connection;
+        console.log (program.connection);
         api.list (options);
     });
 
@@ -107,6 +111,7 @@ program
     .option('-p, --plugins', 'Work plugins configuration')
     .option('-j, --jobs', 'Work jobs configuration')
     .action(function (options) {
+        options.connection = program.connection;
         api.backup (options);
     });
 
@@ -117,6 +122,7 @@ program
     .option('-p, --plugins', 'Work plugins configuration')
     .option('-j, --jobs', 'Work jobs configuration')
     .action(function (options) {
+        options.connection = program.connection;
         api.install (options);
     });
 
