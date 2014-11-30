@@ -77,8 +77,9 @@ program
             message: 'Working dir'
         }];
         //Ask
-        api.prompt(prompts, function (jenkins) {
-            api.signup(jenkins);
+        api.prompt(prompts, function (options) {
+            options.connection = program.connection;
+            api.signup(options);
         });
     });
 
@@ -87,7 +88,7 @@ program
  */
 program
     .command('status')
-    .description('Show status of API'.white)
+    .description('Show Jenkins connection parameters'.white)
     .action(function (options) {
         options.connection = program.connection;
         api.status(options);
@@ -133,8 +134,8 @@ program
 program.on('--help', function () {
     console.log('  Examples:');
     console.log('');
-    console.log('    $ jenkins-cli config');
-    console.log('    $ jenkins-cli status');
+    console.log('    $ jenkins-cli -c production.json config');
+    console.log('    $ jenkins-cli -c production.json list -j ');
     console.log('');
 });
 

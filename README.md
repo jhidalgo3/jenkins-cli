@@ -1,9 +1,10 @@
 # jenkins-cli [![Build Status](https://secure.travis-ci.org/jhidalgo3/jenkins-cli.png?branch=master)](https://travis-ci.org/jhidalgo3/jenkins-cli) [![NPM version](https://badge-me.herokuapp.com/api/npm/jenkins-cli.png)](http://badges.enytc.com/for/npm/jenkins-cli)
 
-> 
+>
 
-## Getting Started
-Install the module with: 
+Install
+-----
+Install the module with:
 
 ```bash
 $ npm install -g jenkins-cli
@@ -17,111 +18,76 @@ var Api = require('jenkins-cli');
 var api = new Api('access_token');
 ```
 
-## Documentation
+Config
+-----
 
-#### .prompt(prompts, cb)
+Configuration jenkins connection parameters
 
-**Parameter**: `prompts`
-**Type**: `Array`
-**Example**: 
-
-```javascript
-var prompts = [
-{
-	type: 'input',
-	name: 'name',
-	message: 'What\'s your name?'
-}, 
-{
-	type: 'input',
-	name: 'email',
-	message: 'What\'s your email?'
-}];
+```bash
+$ jenkins-cli -c production.json
 ```
 
-**Parameter**: `cb`
-**Type**: `Function`
-**Example**:
+And complete:
 
-```javascript
-function(answers) {
-	
-}
+- [?] Jenkins url?
+- [?] What's your user?
+- [?] What's your API Token?
+- [?] Working dir:
+
+Usage
+-----
+
+## Jobs (-j)
+
+#### list jobs
+
+```bash
+$ jenkins-cli -c production.json list -j
 ```
 
-The 'prompt' method is responsible for asking questions
+#### backup jobs
 
-How to use this method
+Save all `config.xml` into working dir
 
-```javascript
-var prompts = [
-{
-	type: 'input',
-	name: 'name',
-	message: 'What\'s your name?'
-}, 
-{
-	type: 'input',
-	name: 'email',
-	message: 'What\'s your email?'
-}];
+```bash
+$ jenkins-cli -c production.json backup -j
+```
+#### install jobs
 
-api.prompt(prompts, function(answers) {
-	console.log(answers);
-}); 
+Read each `config.xml` from working dir and install or update job
+
+```bash
+$ jenkins-cli -c new_production.json backup -j
 ```
 
-#### .signup(name, email, password)
+## Plugins (-p)
 
-**Parameter**: `name`
-**Type**: `String`
-**Example**: `myname`
+#### list plugins
 
-
-**Parameter**: `email`
-**Type**: `String`
-**Example**: `example@example.com`
-
-
-**Parameter**: `password`
-**Type**: `String`
-**Example**: `123456test`
-
-
-The 'signup' method is responsible for create accounts
-
-How to use this method
-
-```javascript
-
-api.signup('myname', 'email', '123456test');
+```bash
+$ jenkins-cli -c production.json list -p
 ```
 
-#### .status(pureJson)
+#### backup plugins
 
-**Parameter**: `pureJson`
-**Type**: `Boolean`
-**Example**: `true`
+Save all plugins `plugins.json` in working dir
 
+```bash
+$ jenkins-cli -c production.json backup -p
+```
+#### install plugins
 
-The 'status' method is responsible for showing the status of api
+Read each `config.xml` from working dir and install or update job
 
-How to use this method
-
-```javascript
-
-api.status(true);
+```bash
+$ jenkins-cli -c new_production.json backup -p
 ```
 
-
-## Contributing
-
-See the [CONTRIBUTING Guidelines](https://github.com/jhidalgo3/jenkins-cli/blob/master/CONTRIBUTING.md)
 
 ## Support
 If you have any problem or suggestion please open an issue [here](https://github.com/jhidalgo3/jenkins-cli/issues).
 
-## License 
+## License
 
 The BSD License
 
