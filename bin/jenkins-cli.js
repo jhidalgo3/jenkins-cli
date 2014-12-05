@@ -174,8 +174,10 @@ var notifier = updateNotifier({
     packageVersion: pkg.version
 });
 
+
+
 if (notifier.update) {
-    notifier.notify(true);
+    notifier.notify();
 }
 
 if (process.argv.length == 2) {
