@@ -1,7 +1,5 @@
 # jenkins-cli [![Build Status](https://secure.travis-ci.org/jhidalgo3/jenkins-cli.png?branch=master)](https://travis-ci.org/jhidalgo3/jenkins-cli) [![NPM version](https://badge-me.herokuapp.com/api/npm/jenkins-cli.png)](http://badges.enytc.com/for/npm/jenkins-cli)
 
->
-
 Install
 -----
 Install the module with:

@@ -48,7 +48,8 @@ program
  */
 
 program
-    .option('-c, --connection [file]', 'Jenkins file connection');
+    .option('-c, --connection [file]', 'Jenkins file connection')
+    .option('-f, --filter [file]', "List of jobs to install or backup");
 
 
 /*
@@ -102,7 +103,8 @@ program
     .option('-j, --jobs', 'Work jobs configuration')
     .action(function (options){
         options.connection = program.connection;
-        console.log (program.connection);
+        options.filter = program.filter;
+
         api.list (options);
     });
 
@@ -113,6 +115,7 @@ program
     .option('-j, --jobs', 'Work jobs configuration')
     .action(function (options) {
         options.connection = program.connection;
+        options.filter = program.filter;
         api.backup (options);
     });
 
@@ -124,6 +127,7 @@ program
     .option('-j, --jobs', 'Work jobs configuration')
     .action(function (options) {
         options.connection = program.connection;
+        options.filter = program.filter;
         api.install (options);
     });
 
