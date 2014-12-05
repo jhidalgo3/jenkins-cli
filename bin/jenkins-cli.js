@@ -127,6 +127,7 @@ program
     .option('-j, --jobs', 'Work jobs configuration')
     .action(function (options) {
         options.connection = program.connection;
+        options.filter = program.filter;
         api.install (options);
     });
 
