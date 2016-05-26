@@ -79,6 +79,10 @@ program
             type: 'input',
             name: 'pipelineDirectory',
             message: 'Working dir'
+        },{
+            type: 'input',
+            name: 'encoding',
+            message: 'Encoding'
         }];
         //Ask
         api.prompt(prompts, function (options) {
