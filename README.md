@@ -35,6 +35,7 @@ And complete:
 - [?] What's your user?
 - [?] What's your API Token?
 - [?] Working dir:
+- [?] Encoding:
 
 Usage
 -----
