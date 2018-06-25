@@ -45,7 +45,8 @@
     "iconv-lite": "0.4.7",
     "retry": "0.10.1",
     "sync-request": "6.0.0",
-    "fast-xml-parser": "3.11.1"
+    "fast-xml-parser": "3.11.1",
+    "urlencode": "1.1.0"
   },
   "devDependencies": {
     "mocha": "~1.10.0",
