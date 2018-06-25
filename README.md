@@ -94,7 +94,7 @@ If you have any problem or suggestion please open an issue [here](https://github
 
 The BSD License
 
-Copyright (c) 2014, Jose Maria Hidalgo Garcia
+Copyright (c) 2018, Jose Maria Hidalgo Garcia
 
 All rights reserved.
 
