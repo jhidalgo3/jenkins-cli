@@ -43,7 +43,9 @@
     "underscore": "~1.5.2",
     "update-notifier": "~0.2.0",
     "iconv-lite": "0.4.7",
-	"retry": "0.10.1"
+    "retry": "0.10.1",
+    "sync-request": "6.0.0",
+    "fast-xml-parser": "3.11.1"
   },
   "devDependencies": {
     "mocha": "~1.10.0",
