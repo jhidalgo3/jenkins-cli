@@ -1,7 +1,7 @@
 {
   "name": "jenkins-cli",
   "description": "",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/jhidalgo3/jenkins-cli",
   "author": {
     "name": "Jose Maria Hidalgo Garcia",
@@ -43,7 +43,10 @@
     "underscore": "~1.5.2",
     "update-notifier": "~0.2.0",
     "iconv-lite": "0.4.7",
-	"retry": "0.10.1"
+    "retry": "0.10.1",
+    "sync-request": "6.0.0",
+    "fast-xml-parser": "3.11.1",
+    "urlencode": "1.1.0"
   },
   "devDependencies": {
     "mocha": "~1.10.0",
